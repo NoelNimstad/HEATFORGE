@@ -2,12 +2,12 @@
 #include <vector>
 #include <sstream>
 
-#include "../heatforge/heatforge.h"
-#include "../heatforge/spritesheet.h"
-#include "../heatforge/font.h"
-#include "../heatforge/vector.h"
-#include "../heatforge/collider.h"
-#include "../heatforge/text.h"
+#include "../src/heatforge.h"
+#include "../src/spritesheet.h"
+#include "../src/font.h"
+#include "../src/vector.h"
+#include "../src/collider.h"
+#include "../src/text.h"
 
 Heatforge::Heatforge engine(320, 240, "Demo", 3, 16);
 
@@ -25,6 +25,7 @@ Heatforge::Spritesheet wallSprite = engine.LoadSpritesheet("../Resources/wall.pn
 Heatforge::Vector2 wallPosition(200, 100);
 Heatforge::Entity wall(&wallSprite, &wallPosition);
 
+const int SPEED = 10;
 std::vector<Heatforge::Collider*> colliders;
 
 void ClearScreen()
@@ -39,22 +40,15 @@ void DebugInformation()
     version.Draw();
 }
 
-Heatforge::Text trueText("TRUE", &engine, &MiniStad, 4, 4);
-Heatforge::Text falseText("FALSE", &engine, &MiniStad, 4, 4);
-
 void PhysicsPass()
 {
     velocity.x = engine.inputs[engine.keys['d']] - engine.inputs[engine.keys['a']];
     velocity.y = engine.inputs[engine.keys['s']] - engine.inputs[engine.keys['w']];
-    position += velocity * (engine.delta / 16);
+    position += velocity * (engine.delta / SPEED);
 
     if(player.collider.CalculateCollisions(&colliders))
     {
-        trueText.Draw();
-        position += velocity * -1;
-    } else 
-    {
-        falseText.Draw();
+        position += !velocity;
     }
 }
 

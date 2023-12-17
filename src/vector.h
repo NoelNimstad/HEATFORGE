@@ -50,7 +50,12 @@ namespace Heatforge
                 return * this;
             }
 
-            float operator!()
+            Vector2 operator!()
+            {
+                return Vector2(this -> x * -1, this -> y * -1);
+            }
+
+            float operator--()
             {
                 return sqrtf((this -> x * this -> x) + (this -> y * this -> y));
             }
@@ -63,7 +68,7 @@ namespace Heatforge
                 }
 
                 Vector2 copy(this -> x, this -> y);
-                return copy / !copy;
+                return copy / --copy;
             }
 
             float operator*(const Vector2 & other)
