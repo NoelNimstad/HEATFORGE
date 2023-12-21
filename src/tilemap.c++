@@ -1,6 +1,6 @@
 #include "tilemap.h"
 
-Heatforge::Tilemap::Tilemap(Heatforge::Spritesheet * ss, std::wstring path)
+Heatforge::Tilemap::Tilemap(Heatforge::Spritesheet * ss, const char * path)
 {
     spritesheet = ss;
     std::vector<std::wstring> tiledata(Heatforge::ReadFile(path));

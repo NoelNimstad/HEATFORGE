@@ -2,13 +2,20 @@
 
 void Heatforge::Font::Draw(std::vector<int> * intArray, Vector2 * position)
 {
-    int initial = position -> x;
+    Heatforge::Vector2 initial(position -> x, position -> y);
 
     for(const int & i : (*intArray))
     {
-        spritesheet -> SelectSprite(i);
-        spritesheet -> SetPosition(initial, position -> y);
-        spritesheet -> Draw();
-        initial += spritesheet -> width;
+        if(i == -1)
+        {
+            initial.x = position -> x;
+            initial.y += spritesheet -> height;
+        } else 
+        {
+            spritesheet -> SelectSprite(i);
+            spritesheet -> SetPosition(initial.x, initial.y);
+            spritesheet -> Draw();
+            initial.x += spritesheet -> width;
+        }
     }
 }

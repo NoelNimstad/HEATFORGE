@@ -1,6 +1,6 @@
 #include "readfile.h"
 
-std::vector<std::wstring> Heatforge::ReadFile(std::wstring path)
+std::vector<std::wstring> Heatforge::ReadFile(const char * path)
 {
     std::wifstream file;
     file.open(path);

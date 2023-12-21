@@ -6,6 +6,7 @@
 
 #include "spritesheet.h"
 #include "vector.h"
+#include "readfile.h"
 
 namespace Heatforge
 {

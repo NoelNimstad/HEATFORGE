@@ -7,5 +7,5 @@
 
 namespace Heatforge
 {
-    std::vector<std::string> ReadFile(char const * path);
+    std::vector<std::wstring> ReadFile(const char * path);
 }
