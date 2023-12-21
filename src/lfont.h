@@ -1,4 +1,4 @@
-#pragma once
+#pragma once 
 
 #include <vector>
 #include <iostream>
@@ -10,13 +10,15 @@
 
 namespace Heatforge
 {
-    class Font
+    
+    class LFont
     {
         public:
-            Font(const char * path);
+            LFont(Spritesheet * spritesheet)
+                : spritesheet(spritesheet) {};
 
             void Draw(std::vector<int> * intArray, Vector2 * position);
         private:
-            Spritesheet spritesheet;
+            Spritesheet * spritesheet;
     };
 }

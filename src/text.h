@@ -6,21 +6,21 @@
 
 #include "heatforge.h"
 #include "vector.h"
-#include "font.h"
+#include "lfont.h"
 
 namespace Heatforge 
 {
     class Text 
     {
         public:
-            Text(std::wstring string, Heatforge * engine, Font * font, int x, int y)
+            Text(std::wstring string, Heatforge * engine, LFont * font, int x, int y)
                 : engine(engine), position(x, y), font(font), intArray(engine -> ConvertStringToIntArray(string)) {};
 
             void Draw();
             void ChangeText(std::wstring);
         private:
             Heatforge * engine;
-            Font * font;
+            LFont * font;
             std::vector<int> intArray;
             Vector2 position;
     };
