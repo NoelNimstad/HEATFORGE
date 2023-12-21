@@ -1,11 +1,11 @@
 #include "readfile.h"
 
-std::vector<std::string> Heatforge::ReadFile(char const * path)
+std::vector<std::wstring> Heatforge::ReadFile(std::wstring path)
 {
-    std::ifstream file;
+    std::wifstream file;
     file.open(path);
-    std::vector<std::string> result;
-    std::string value;
+    std::vector<std::wstring> result;
+    std::wstring value;
 
     if(file.is_open())
     {

@@ -17,7 +17,7 @@ namespace Heatforge
                 : engine(engine), position(x, y), font(font), intArray(engine -> ConvertStringToIntArray(string)) {};
 
             void Draw();
-            void ChangeText(std::string);
+            void ChangeText(std::wstring);
         private:
             Heatforge * engine;
             Font * font;

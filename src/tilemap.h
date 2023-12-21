@@ -13,7 +13,7 @@ namespace Heatforge
     class Tilemap 
     {
         public:
-            Tilemap(Spritesheet * spritesheet, char const * path);
+            Tilemap(Spritesheet * spritesheet, std::wstring path);
             std::vector<Tile> tiles;
             void Draw();
         private:

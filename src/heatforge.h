@@ -17,7 +17,7 @@ namespace Heatforge
     {
         public:
             // functions
-            Heatforge(int WIDTH, int HEIGHT, char const * TITLE, int SCALE, int ms)
+            Heatforge(char const * TITLE, int WIDTH, int HEIGHT, int SCALE, int ms)
                 : window(WIDTH * SCALE, HEIGHT * SCALE, TITLE), renderer(window.CreateRenderer()), scale(SCALE), frameTime(ms), ZERO(0, 0) 
             {
                 CHAR_MAP = 
@@ -58,8 +58,9 @@ namespace Heatforge
             void Clear();
             void Update();
             void DoVSync(bool state);
-            Spritesheet LoadSpritesheet(char const * path, int WIDTH, int HEIGHT);
-            std::vector<int> ConvertStringToIntArray(std::string string);
+            void Hook(std::function<void()> hook);
+            Spritesheet LoadSpritesheet(const char * path, int WIDTH, int HEIGHT);
+            std::vector<int> ConvertStringToIntArray(std::wstring string);
 
             // variables
             bool running = true;
@@ -72,7 +73,7 @@ namespace Heatforge
         private:
             int scale;
             std::chrono::milliseconds frameTime;
-            std::unordered_map<char, int> CHAR_MAP;
+            std::unordered_map<wchar_t, int> CHAR_MAP;
 
             // integral parts
             Window window;

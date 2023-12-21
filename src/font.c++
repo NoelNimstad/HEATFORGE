@@ -9,6 +9,6 @@ void Heatforge::Font::Draw(std::vector<int> * intArray, Vector2 * position)
         spritesheet -> SelectSprite(i);
         spritesheet -> SetPosition(initial, position -> y);
         spritesheet -> Draw();
-        initial += 4;
+        initial += spritesheet -> width;
     }
 }

@@ -1,17 +1,17 @@
 #include "tilemap.h"
 
-Heatforge::Tilemap::Tilemap(Heatforge::Spritesheet * ss, char const * path)
+Heatforge::Tilemap::Tilemap(Heatforge::Spritesheet * ss, std::wstring path)
 {
     spritesheet = ss;
-    std::vector<std::string> tiledata(Heatforge::ReadFile(path));
+    std::vector<std::wstring> tiledata(Heatforge::ReadFile(path));
 
     for(const auto& line : tiledata)
     {
-        std::vector<std::string> parts;
-        std::stringstream lineStream = std::stringstream(line);
-        std::string segment;
+        std::vector<std::wstring> parts;
+        std::wstringstream lineStream = std::wstringstream(line);
+        std::wstring segment;
 
-        while(std::getline(lineStream, segment, '|'))
+        while(std::getline(lineStream, segment, L'|'))
         {
             parts.push_back(segment);
         }
