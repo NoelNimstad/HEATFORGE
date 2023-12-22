@@ -2,14 +2,16 @@
 
 #include "../src/heatforge.h"
 #include "../src/lfont.h"
-#include "../src/text.h"
+#include "..src/font.h"
+#include "../src/ltext.h"
 
 Heatforge::Heatforge _("日本語", 400, 300, 3, 16);
 
 Heatforge::Spritesheet MiniStadJPAtlas = _.LoadSpritesheet("../Resources/MiniStadJPAtlas.png", 10, 10);
-Heatforge::LFont MiniStadJP(&MiniStadJPAtlas);
+Heatforge::LFont LMiniStadJP(&MiniStadJPAtlas);
+Heatforge::Font MiniStadJP("../Resources/MiniStadJP.hfont");
 
-Heatforge::Text label(L"あおいおう\nあおあお", &_, &MiniStadJP, 20, 20);
+Heatforge::LText label(L"あおいおう\nあおあお", &_, &LMiniStadJP, 20, 20);
 
 void DrawPass()
 {
