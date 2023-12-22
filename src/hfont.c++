@@ -12,7 +12,7 @@ Heatforge::HFont::HFont(std::string path)
 
     std::wstring tileWidth = info.at(0);
     std::wstring tileHeight = info.at(1);
-    info.erase(info.begin(), info.begin() + 3);
+    info.erase(info.begin(), info.begin() + 2);
 
     try 
     {

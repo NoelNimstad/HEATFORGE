@@ -4,6 +4,9 @@
 #include <iostream>
 #include <sstream>
 #include <unordered_map>
+#include <string>
+#include <locale>
+#include <codecvt>
 
 #include "spritesheet.h"
 #include "vector.h"
@@ -33,8 +36,6 @@ namespace Heatforge
                         parts.push_back(segment);
                     }
 
-                    std::cout << parts.size() << std::endl;
-
                     int index;
                     try 
                     {
@@ -49,9 +50,12 @@ namespace Heatforge
                         exit(1);
                     }
 
-                    std::wcout << L"おはよう" << std::endl;
+                    std::string characterString = std::string(parts.at(0).begin(), parts.at(0).end());
+                    std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+                    wchar_t character = converter.from_bytes(characterString)[0];
+                    
+                    CHAR_MAP.insert({ character, index });
                 }
-                CHAR_MAP.insert({ L'あ', 0 });
             };
 
             void Draw(std::vector<int> * intArray, Vector2 * position);

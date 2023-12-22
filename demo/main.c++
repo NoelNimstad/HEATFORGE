@@ -4,11 +4,11 @@
 #include "../src/font.h"
 #include "../src/text.h"
 
-Heatforge::Heatforge _("日本語", 400, 300, 3, 16);
+Heatforge::Heatforge _("日本語", 640, 480, 2, 16);
 
 Heatforge::Font MiniStadJP("../Resources/MiniStadJP.hfont", &_);
 
-Heatforge::Text label(L"あ", &MiniStadJP, 20, 20);
+Heatforge::Text label(L"ですか、ですが", &MiniStadJP, 20, 20);
 
 void DrawPass()
 {
