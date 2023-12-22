@@ -6,7 +6,6 @@
 
 Heatforge::Heatforge _("日本語", 400, 300, 3, 16);
 
-Heatforge::Spritesheet MiniStadJPAtlas = _.LoadSpritesheet("../Resources/MiniStadJPAtlas.png", 10, 10);
 Heatforge::Font MiniStadJP("../Resources/MiniStadJP.hfont", &_);
 
 Heatforge::Text label(L"あ", &MiniStadJP, 20, 20);

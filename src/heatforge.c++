@@ -89,27 +89,6 @@ void Heatforge::Heatforge::DoVSync(bool state)
     SDL_GL_SetSwapInterval(state);
 }
 
-std::vector<int> Heatforge::Heatforge::ConvertStringToIntArray(std::wstring string)
-{
-    std::vector<int> result;
-    result.reserve(string.size());
-
-    for(const wchar_t & c : string)
-    {
-        auto it = CHAR_MAP.find(c);
-        if(it != CHAR_MAP.end())
-        {
-            result.push_back(it -> second);
-        }
-        else
-        {
-            std::cout << c << " is not a valid string character" << std::endl;
-        }
-    }
-
-    return result;
-}
-
 void Heatforge::Heatforge::Hook(std::function<void()> hook)
 {
     hooks.push_back(hook);

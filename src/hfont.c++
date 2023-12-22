@@ -1,19 +1,18 @@
 #include "hfont.h"
 
-Heatforge::HFont::HFont(const char * path)
+Heatforge::HFont::HFont(std::string path)
 {
-    std::vector<std::wstring> file = Heatforge::ReadFile(path);
+    std::vector<std::wstring> info = Heatforge::ReadFile((path + "/info.txt").c_str());
 
-    if(file.size() < 4)
+    if(info.size() < 3)
     {
         std::cout << "font " << path << " does not contain sufficient information!";
         exit(1);
     }
 
-    std::wstring tileWidth = file.at(0);
-    std::wstring tileHeight = file.at(1);
-    std::wstring pathInformation = file.at(2);
-    file.erase(file.begin(), file.begin() + 3);
+    std::wstring tileWidth = info.at(0);
+    std::wstring tileHeight = info.at(1);
+    info.erase(info.begin(), info.begin() + 3);
 
     try 
     {
@@ -29,5 +28,5 @@ Heatforge::HFont::HFont(const char * path)
         exit(1);
     }
 
-    location = std::string(pathInformation.begin(), pathInformation.end());
+    contents = info;
 }

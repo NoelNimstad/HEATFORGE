@@ -11,8 +11,7 @@ namespace Heatforge
     class HFont
     {
         public:
-            HFont(const char * path);
-            std::string location;
+            HFont(std::string path);
             std::vector<std::wstring> contents;
             int x;
             int y;

@@ -1,6 +1,5 @@
 10
 10
-../Resources/MiniStadJPAtlas.png
 あ 0
 お 1
 え 2
