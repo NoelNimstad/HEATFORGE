@@ -13,11 +13,11 @@
 
 namespace Heatforge 
 {
-    class Engine
+    class Heatforge
     {
         public:
             // functions
-            Engine(char const * TITLE, int WIDTH, int HEIGHT, int SCALE, int ms)
+            Heatforge(char const * TITLE, int WIDTH, int HEIGHT, int SCALE, int ms)
                 : window(WIDTH * SCALE, HEIGHT * SCALE, TITLE), renderer(window.CreateRenderer()), scale(SCALE), frameTime(ms), ZERO(0, 0) 
             {
                 CHAR_MAP = 

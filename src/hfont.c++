@@ -14,7 +14,7 @@ Heatforge::HFont::HFont(const char * path)
     std::wstring tileHeight = file.at(1);
     std::wstring pathInformation = file.at(2);
     file.erase(file.begin(), file.begin() + 3);
-    
+
     try 
     {
         x = std::stoi(tileWidth);
@@ -28,4 +28,6 @@ Heatforge::HFont::HFont(const char * path)
         std::cout << e.what(); 
         exit(1);
     }
+
+    location = std::string(pathInformation.begin(), pathInformation.end());
 }

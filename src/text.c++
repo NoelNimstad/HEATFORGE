@@ -7,5 +7,5 @@ void Heatforge::Text::Draw()
 
 void Heatforge::Text::ChangeText(std::wstring text)
 {
-    intArray = engine -> ConvertStringToIntArray(text);
+    intArray = font -> ConvertStringToIntArray(text);
 }

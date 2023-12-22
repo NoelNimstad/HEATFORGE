@@ -12,7 +12,7 @@ namespace Heatforge
     {
         public:
             HFont(const char * path);
-            std::string path;
+            std::string location;
             std::vector<std::wstring> contents;
             int x;
             int y;
