@@ -4,24 +4,38 @@
 #include "../src/font.h"
 #include "../src/text.h"
 
-Heatforge::Heatforge _("日本語", 640, 480, 2, 16);
+Heatforge::Heatforge _("RPG Demo", 320, 240, 3, 16);
 
-Heatforge::Font MiniStadJP("../Resources/MiniStadJP.hfont", &_);
+Heatforge::Font MiniStad("../Resources/MiniStad.hfont", &_);
 
-Heatforge::Text label(L"ですか、ですが", &MiniStadJP, 20, 20);
+Heatforge::Text label(L"abcdefghijklmnopqrstuvwxyz0123456789:-+.!?%=&", &MiniStad, 277, 223);
 
-void DrawPass()
+bool debug = false;
+void Debug()
 {
+    if(_.inputs[_.keys['d']])
+    {
+        debug = !debug;
+    }
+    
     _.Clear();
 
-    label.Draw();
+    if(debug)
+    {
 
-    _.Update();
+        std::wstringstream ss; 
+        ss << L"d: " << _.delta << L"ms\nv: 0.6.1a";
+
+        label.ChangeText(ss.str());
+        label.Draw();
+    }
+
+    _.Update();   
 }
 
 int main()
 {
-    _.Hook(DrawPass);
+    _.Hook(&Debug);
 
     _.Start();
     _.End();

@@ -5,6 +5,7 @@
 #include <functional>
 #include <vector>
 #include <unordered_map>
+#include <algorithm>
 
 #include "window.h"
 #include "renderer.h"
@@ -34,6 +35,7 @@ namespace Heatforge
             void Update();
             void DoVSync(bool state);
             void Hook(std::function<void()> hook);
+            void Unhook(std::function<void()> hook);
             Spritesheet LoadSpritesheet(const char * path, int WIDTH, int HEIGHT);
 
             // variables

@@ -93,3 +93,21 @@ void Heatforge::Heatforge::Hook(std::function<void()> hook)
 {
     hooks.push_back(hook);
 }
+
+void Heatforge::Heatforge::Unhook(std::function<void()> hook)
+{
+    auto it = std::find_if(hooks.begin(), hooks.end(),
+        [&hook](const std::function<void()>& storedHook) 
+        {
+            return storedHook.target<void()>() == hook.target<void()>();
+        }
+    );
+
+    if (it != hooks.end()) 
+    {
+        hooks.erase(it);
+        std::cout << "Hook removed successfully!" << std::endl;
+    } else {
+        std::cout << "Hook not found!" << std::endl;
+    }
+}
