@@ -23,30 +23,34 @@ namespace Heatforge
             {
                 keys = 
                 {
-                    { 'w', 119 }, { 'a', 97 },
-                    { 's', 115 }, { 'd', 100 }
+                    { L"w", 119 }, { L"a", 97 },
+                    { L"s", 115 }, { L"d", 100 },
+                    { L" ", 32 }, { L"left", 1073741904 },
+                    { L"right", 1073741903 }
                 };
             };
+            ~Heatforge();
             
-            void HandleEvent(const SDL_Event & event, std::unordered_map<int, bool> & inputs);
             void Start();
-            void End();
             void Clear();
             void Update();
             void DoVSync(bool state);
             void Hook(std::function<void()> hook);
+            void ClearHooks();
             void Unhook(std::function<void()> hook);
             Spritesheet LoadSpritesheet(const char * path, int WIDTH, int HEIGHT);
+            bool GetKey(const wchar_t * key);
 
             // variables
             bool running = true;
-            std::vector<std::function<void()>> hooks;   
             int clearColor[3] = { 0, 0, 0 };
             Uint32 delta;
             std::unordered_map<int, bool> inputs;
-            std::unordered_map<char, int> keys;
+            std::unordered_map<const wchar_t *, int> keys;
             Vector2 ZERO;
         private:
+            std::vector<std::function<void()>> hooks;   
+            void HandleEvent(const SDL_Event & event, std::unordered_map<int, bool> & inputs);
             int scale;
             std::chrono::milliseconds frameTime;
             std::unordered_map<wchar_t, int> CHAR_MAP;

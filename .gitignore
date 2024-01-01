@@ -3,3 +3,4 @@ build
 ignore
 src/Frameworks
 .DS_Store
+documentation

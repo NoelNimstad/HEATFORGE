@@ -53,7 +53,7 @@ void Heatforge::Heatforge::HandleEvent(const SDL_Event& event, std::unordered_ma
     }
 }
 
-void Heatforge::Heatforge::End()
+Heatforge::Heatforge::~Heatforge()
 {
     SDL_Quit();
     free(renderer);
@@ -110,4 +110,14 @@ void Heatforge::Heatforge::Unhook(std::function<void()> hook)
     } else {
         std::cout << "Hook not found!" << std::endl;
     }
+}
+
+bool Heatforge::Heatforge::GetKey(const wchar_t * key)
+{
+    return inputs[keys[key]];
+}
+
+void Heatforge::Heatforge::ClearHooks()
+{
+    hooks.clear();
 }
