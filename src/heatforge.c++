@@ -2,7 +2,7 @@
 
 void Heatforge::Heatforge::Start()
 {
-    std::cout << "Heatforge v0.4.2a\nby: Noel Nimstad" << std::endl;
+    std::cout << "Heatforge v0.7.0a\nby: Noel Nimstad" << std::endl;
 
     std::chrono::milliseconds last = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch());
     std::chrono::milliseconds now;

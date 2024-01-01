@@ -1,4 +1,5 @@
 #pragma once
+#include <sstream>
 #include "global.h"
 
 bool debug = false;
@@ -21,7 +22,7 @@ void Debug()
         std::wstringstream ss; 
         ss << L"d: " << _.delta << L"ms\nv: 0.6.1a";
 
-        label.ChangeText(ss.str());
-        label.Draw();
+        dtext.ChangeText(ss.str());
+        dtext.Draw();
     }
 }

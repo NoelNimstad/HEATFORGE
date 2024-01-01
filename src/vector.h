@@ -26,6 +26,18 @@ namespace Heatforge
                 return * this;
             }
 
+            Vector2 operator-(const Vector2 & other)
+            {
+                return Vector2(other.x - this -> x, other.y - this -> y);
+            }
+
+            Vector2 operator-=(const Vector2 & other)
+            {
+                this -> x -= other.x;
+                this -> y -= other.y;
+                return * this;
+            }
+
             Vector2 operator*(const float & other)
             {
                 return Vector2(this -> x * other, this -> y * other);

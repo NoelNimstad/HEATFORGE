@@ -2,7 +2,6 @@
 
 Heatforge::HFont::HFont(std::string path)
 {
-    std::cout << (path + "/info.txt") << std::endl;
     std::vector<std::wstring> info = Heatforge::ReadFile((path + "/info.txt").c_str());
 
     if(info.size() < 3)

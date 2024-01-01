@@ -26,7 +26,8 @@ namespace Heatforge
                     { L"w", 119 }, { L"a", 97 },
                     { L"s", 115 }, { L"d", 100 },
                     { L" ", 32 }, { L"left", 1073741904 },
-                    { L"right", 1073741903 }
+                    { L"right", 1073741903 }, { L"lshift", 1073742049 },
+                    { L"rshift", 1073742053 }
                 };
             };
             ~Heatforge();
